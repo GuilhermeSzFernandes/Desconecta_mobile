@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconecta - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>👨‍👩‍👧‍👦 Meus Filhos</h1>
+                <button class="btn-secondary" onclick="logout()">
+                    🚪 Sair
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <div id="loadingState" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Carregando dispositivos...</p>
+            </div>
+
+            <div id="childrenList" class="children-list" style="display: none;">
+                <!-- Lista de filhos será inserida aqui -->
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">📱</div>
+                <h3>Nenhum dispositivo encontrado</h3>
+                <p>Não há dispositivos cadastrados para este usuário.</p>
+            </div>
+
+            <div id="errorState" class="error-state" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <h3>Erro ao carregar</h3>
+                <p id="errorText"></p>
+                <button class="btn-primary" onclick="loadChildren()">
+                    🔄 Tentar novamente
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
