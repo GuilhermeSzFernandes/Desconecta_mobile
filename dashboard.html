@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-content">
+    <div class="dashboard-container">
+        <!-- Header Suspenso -->
+        <header class="floating-header">
+            <div class="floating-header-content">
                 <h1>👨‍👩‍👧‍👦 Meus Filhos</h1>
                 <button class="btn-secondary" onclick="logout()">
                     🚪 Sair
@@ -17,6 +18,7 @@
             </div>
         </header>
 
+        <!-- Conteúdo Principal -->
         <main class="dashboard-content">
             <div id="loadingState" class="loading-state">
                 <div class="loading-spinner"></div>
