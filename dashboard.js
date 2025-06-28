@@ -79,7 +79,6 @@ function displayChildren(children) {
 
     showChildrenList();
 }
-
 async function toggleDeviceStatus(codigoMaquina, isBloqueado, deviceId) {
     const button = document.getElementById(`btn-${deviceId}`);
     const originalText = button.innerHTML;
@@ -98,8 +97,24 @@ async function toggleDeviceStatus(codigoMaquina, isBloqueado, deviceId) {
         });
 
         if (response.ok) {
-            // Recarregar a lista para atualizar o status
-            await loadChildren();
+            // Atualizar apenas o botão e o status-badge no card
+            const badge = button.closest('.child-card').querySelector('.status-badge');
+            
+            if (isBloqueado) {
+                badge.classList.remove('status-blocked');
+                badge.classList.add('status-active');
+                badge.innerHTML = '✅ Ativo';
+                button.classList.remove('btn-unblock');
+                button.classList.add('btn-block');
+                button.innerHTML = '🔒 Bloquear';
+            } else {
+                badge.classList.remove('status-active');
+                badge.classList.add('status-blocked');
+                badge.innerHTML = '🔒 Bloqueado';
+                button.classList.remove('btn-block');
+                button.classList.add('btn-unblock');
+                button.innerHTML = '🔓 Desbloquear';
+            }
         } else {
             throw new Error(`Erro ao ${isBloqueado ? 'desbloquear' : 'bloquear'} dispositivo`);
         }
@@ -111,8 +126,12 @@ async function toggleDeviceStatus(codigoMaquina, isBloqueado, deviceId) {
         button.innerHTML = originalText;
         
         alert(`Erro: ${error.message}`);
+        return;
     }
+
+    button.disabled = false;
 }
+
 
 function formatDate(dateString) {
     const date = new Date(dateString);
