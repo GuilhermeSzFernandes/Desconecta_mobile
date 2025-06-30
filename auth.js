@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Salvar token/dados do usuário
                 localStorage.setItem('userToken', JSON.stringify(data));
                 localStorage.setItem('userEmail', email);
+                localStorage.setItem('codigoUser', data.codigo);
                 
                 // Redirecionar para dashboard
                 window.location.href = 'dashboard.html';
