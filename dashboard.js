@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 async function loadChildren() {
     showLoadingState();
 
+    var codigo = localStorage.getItem('codigoUser');
     try {
-        // Usando ID fixo 1 como no exemplo da API
         const response = await fetch(`${API_BASE_URL}/Usuario/${codigo}/Filhos`, {
             method: 'GET',
             headers: {
