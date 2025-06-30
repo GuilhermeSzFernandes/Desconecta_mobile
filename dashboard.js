@@ -97,7 +97,7 @@ async function toggleDeviceStatus(codigoMaquina, isBloqueado, deviceId) {
         });
 
         if (response.ok) {
-            // Atualizar apenas o botão e o status-badge no card
+            await loadChildren();
             const badge = button.closest('.child-card').querySelector('.status-badge');
             
             if (isBloqueado) {
