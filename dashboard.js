@@ -15,7 +15,7 @@ async function loadChildren() {
 
     try {
         // Usando ID fixo 1 como no exemplo da API
-        const response = await fetch(`${API_BASE_URL}/Usuario/1/Filhos`, {
+        const response = await fetch(`${API_BASE_URL}/Usuario/${codigo}/Filhos`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
